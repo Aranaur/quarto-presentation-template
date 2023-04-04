@@ -15,7 +15,7 @@
           {
             src: "R.png",
             width: 200,
-            height: 155
+            height: 150
           },
           {
             src: "Python.png",
@@ -61,7 +61,7 @@
         }
       },
       size: {
-        value: 100
+        value: 60
       },
       opacity: {
         value: 1,
