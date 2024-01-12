@@ -2,7 +2,7 @@
 title: "Заголовок"
 subtitle: "Підзаголовок"
 author: "Ігор Мірошниченко"
-institute: "КНУ імені Тараса Шевченка"
+institute: КНУ імені Тараса Шевченка | ФІТ
 # date: today
 # date-format: iso
 from: markdown+emoji
