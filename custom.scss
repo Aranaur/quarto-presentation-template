@@ -1,25 +1,281 @@
 /*-- scss:defaults --*/
 
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,500,500i,700,700i);
-@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
-
 // fonts
-$font-family-sans-serif: 'Fira Sans', sans-serif !default;
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sence&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+
+$font-family-sans-serif: "Fira Sence", sans-serif, "Open Sans", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-monospace: "Source Code Pro", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$body-font-family: "Fira Sence", sans-serif, "Open Sans", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+$root-font-size: 18px;
+$body-font-size: 1rem;
+$body-font-weight: 400;
+$body-line-height: 1.5;
+$body-color: #212529;
+$body-bg: #ffffff;
 
 // colors
-$link-color: #2f4c3e !default;
 
-// headings
-$presentation-heading-font: "Fira Sans", sans-serif !default;
-$presentation-font-size-root: 30px;
+$link-color: #447099;
+$text-muted: #6a737b;
 
-.reveal .slide h1,
-.reveal .slide h2 {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
+$blue: #447099;
+$indigo: #4B00C1;
+$purple: #74149C;
+$pink: #BF007F;
+$red: #C10000;
+$orange: #f45100;
+$yellow: #F9B928;
+$green: #00891A;
+$teal: #00BF7F;
+$cyan: #03C7E8;
+$white: #ffffff;
+$gray: #606060;
+$gray-dark: #303030;
+$gray-100: #f8f8f8;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #cdd4da;
+$gray-500: #959595;
+$gray-600: #7c7c7c;
+$gray-700: #606060;
+$gray-800: #404040;
+$gray-900: #202020;
+$default: #dee2e6;
+$primary: #447099;
+$secondary: #404040;
+$success: #00891A;
+$info: #03C7E8;
+$warning: #F9B928;
+$danger: #C10000;
+$light: #f8f8f8;
+$dark: #202020;
+$default-rgb: 222, 226, 230;
+$primary-rgb: 68 112 153;
+$secondary-rgb: 64, 64, 64;
+$success-rgb: 0, 137, 26;
+$info-rgb: 3, 199, 232;
+$warning-rgb: 249, 185, 40;
+$danger-rgb: 193, 0, 0;
+$light-rgb: 248, 248, 248;
+$dark-rgb: 32, 32, 32;
+$white-rgb: 255, 255, 255;
+$black-rgb: 0, 0, 0;
+$body-color-rgb: 32, 32, 32;
+$body-bg-rgb: 255, 255, 255;
+$gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+$presentation-h1-font-size: 2.4em;
+
+/*-- scss:rules --*/
+
+.reveal .slide aside {
+  bottom: 40px;
 }
 
+.slide table {
+  width: 100%;
+}
+
+.slide table pre {
+  font-size: 0.7em;
+}
+
+.pdf-page .web {
+  display: none;
+}
+
+/* Quick inline text sizing classes */
+
+.p-90 {
+  font-size: 90%;
+}
+
+.p-85 {
+  font-size: 85%;
+}
+
+.p-80 {
+  font-size: 80%;
+}
+
+.spacer {
+  margin-left: 30px;
+}
+
+/* Bootstrap inline styling */
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.pe-5 {
+  padding-right: 3em;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.pb-2 {
+  padding-bottom: 0.5em !important;
+}
+
+.pb-3 {
+  padding-bottom: 1em !important;
+}
+
+.py-3 {
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
+}
+
+.pb-5 {
+  padding-bottom: 3em !important;
+}
+
+.pt-3 {
+  padding-top: 1em !important;
+}
+
+.pt-5 {
+  padding-top: 3em !important;
+}
+
+/* Title Slide  */
+
+#title-slide {
+  text-align: left;
+}
+
+.reveal .quarto-title-block .quarto-title-authors {
+  justify-content: left;
+  border-top: 2px solid #447099;
+  margin-top: 3rem;
+  padding-top: 4rem;
+  max-width: 1300px;
+}
+
+/* level2 slides */
+
+.level2 h2:not(section.no-line h2) {
+  border-bottom: 2px solid #447099;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Smaller bullet points */
+
+li::marker {
+  font-size: 80%;
+}
+
+/* Typography */
+
+.reveal blockquote {
+  color: #222;
+  padding: 0.625rem 2rem;
+  border-left: 0.25rem solid #447099;
+  font-size: 115%;
+}
+
+.h2 {
+  font-size: 62px !important;
+  margin-left: 0.25em !important;
+}
+/* Code */
+
+.reveal pre.sourceCode code {
+  max-height: 650px;
+}
+
+.reveal pre.sourceCode code.bash,
+.reveal div.sourceCode pre code.markdown {
+  padding: 15px;
+}
+
+/* Icons */
+
+img.title-icon {
+  padding-right: 20px;
+  width: 100px;
+  margin: auto;
+}
+
+/* Simple Tables  */
+
+.reveal .simple-table table th,
+.reveal .simple-table table td {
+  padding: 0.3em 0;
+  border-bottom: none;
+}
+
+/* Striped Tables */
+
+.striped table tr:nth-of-type(odd):not(tr.header) {
+  background-color: rgba(237, 243, 249, 0.7);
+}
+
+.reveal .striped table th,
+.reveal .striped table td {
+  padding: 0.3em 0.5em;
+  border-bottom: none;
+}
+
+/* Regular Tables */
+.reveal table th,
+.reveal table td {
+  border-bottom: 1px solid #bbb;
+}
+
+table td {
+  vertical-align: middle;
+}
+
+/* Table pre size closer to non-pre size */
+
+.reveal table pre {
+  font-size: 0.8em;
+}
+
+/* table tbody td:not(table tbody td code) {
+  font-size: 1.5rem;
+} */
+
+/* tables with no border */
+.border-0 table td {
+  border: none !important;
+}
+
+/* Tables with larger cells vertically */
+
+.larger-cells tbody td {
+  padding-top: 0.65em !important;
+  padding-bottom: 0.65em !important;
+}
+
+/* What if images had a shadow? */
+
+img.shadow {
+  box-shadow: 0px 1px 2px rgb(0 0 0 / 15%), 0px 3px 7px rgb(0 0 0 / 15%),
+    0px 12px 30px rgb(0 0 0 / 8%);
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding: 0.5rem;
+}
+.border {
+  border: 1px solid grey;
+}
+
+.hr {
+  height: 2px;
+  background-color: #447099;
+  border: none;
+}
 
 /*-- scss:rules --*/
 /* Create a highlighted class called 'hi'  */
@@ -130,27 +386,6 @@ $presentation-font-size-root: 30px;
   color: #ffffff;
 }
 
-/* Fraction */
-.top{
-  display:inline-block;
-}
-.bottom{
-  border-top:solid black 1px;
-  display:inline-block;
-  clear:left;
-}
-
-.clear .remark-slide-number {
-  display: none;
-}
-.inverse .remark-slide-number {
-  display: none;
-}
-
-.remark-code-line-highlighted {
-  background-color: rgba(249, 39, 114, 0.5);
-}
-
 .bigger {
   font-size: 125%;
 }
@@ -172,267 +407,10 @@ $presentation-font-size-root: 30px;
   font-size: 50%;
 }
 
-.remark-slide-content {
-  background-color: #ffffff;
-  font-size: 24px;
-  /* font-weight: 300; */
-  /* line-height: 1.5; */
-  /* padding: 1em 2em 1em 2em; */
-}
-
-.inverse {
-  background-color: #23373B;
-  text-shadow: 0 0 20px #333;
-  /* text-shadow: none; */
-}
-
-.title-slide {
-  background-color: #ffffff;
-  border-top: 1px solid #ffffff;
-}
-
-.footnote {
-  bottom: 1em;
-  font-size: 80%;
-  color: #7f7f7f;
-}
-
-/* Turn off slide numbers */
-.remark-slide-number {
-  /* display: none; */
-}
-
-.dark-slide {
-  background-color: #23373B;
-  border-top: 0px solid #23373B;
-}
-.dark-slide .remark-slide-number {
-  display: none;
-}
-
-.white-slide {
-  background-color: #ffffff;
-  border-top: 0px solid #ffffff;
-}
-.white-slide .remark-slide-number {
-  display: none;
-}
-
-.mjx-chtml{
-  font-size: 103% !important;
-}
-
-/* Mono-spaced font, smaller */
-.mono-small {
-  font-family: monospace;
-  font-size: 20px;
-}
-.mono-small .mjx-chtml {
-  font-size: 103% !important;
-}
-
-.pseudocode, .pseudocode-small {
-  font-family: monospace;
-  background: #f8f8f8;
-  border-radius: 3px;
-  padding: 10px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-.pseudocode-small {
-  font-size: 20px;
-}
-
-.super{
-  vertical-align: super;
-  font-size: 70%;
-  line-height: 1%;
-}
-.sub{
-  vertical-align: sub;
-  font-size: 70%;
-  line-height: 1%;
-}
-
-.remark-code {
-  font-size: 68%;
-}
-
-.inverse > h2 {
-  color: #e64173;
-  font-weight: 300;
-  font-size: 40px;
-  font-style: italic;
-  margin-top: -25px;
-}
-.title-slide > h2  {
-  margin-top: -25px;
-  padding-bottom: -20px;
-  color: rgba(249, 38, 114, 0.75);
-  text-shadow: none;
-  font-weight: 300;
-  font-size: 35px;
-  font-style: normal;
-  text-align: left;
-  margin-left: 15px;
-}
-
-.remark-inline-code {
-  background: #F5F5F5; /* lighter */
-  /* background: #e7e8e2; /* darker */
-  border-radius: 3px;
-  padding: 4px;
-}
-
-/* 2/3 left; 1/3 right */
-.more-left {
-  float: left;
-  width: 63%;
-}
-.less-right {
-  float: right;
-  width: 31%;
-}
-.more-right ~ * {
-  clear: both;
-}
-
-/* 9/10 left; 1/10 right */
-.left90 {
-  padding-top: 0.7em;
-  float: left;
-  width: 85%;
-}
-.right10 {
-  padding-top: 0.7em;
-  float: right;
-  width: 9%;
-}
-
-/* 95% left; 5% right */
-.left95 {
-  padding-top: 0.7em;
-  float: left;
-  width: 91%;
-}
-.right05 {
-  padding-top: 0.7em;
-  float: right;
-  width: 5%;
-}
-
-.left5 {
-  padding-top: 0.7em;
-  margin-left: 0em;
-  margin-right: -0.4em;
-  float: left;
-  width: 7%;
-}
-.left10 {
-  padding-top: 0.7em;
-  margin-left: -0.2em;
-  margin-right: -0.5em;
-  float: left;
-  width: 10%;
-}
-.left30 {
-  padding-top: 0.7em;
-  float: left;
-  width: 30%;
-}
-.right30 {
-  padding-top: 0.7em;
-  float: right;
-  width: 30%;
-}
-
-.thin-left {
-  padding-top: 0.7em;
-  margin-left: -1em;
-  margin-right: -0.5em;
-  float: left;
-  width: 27.5%;
-}
-
-/* Format tables */
-table {
-  color: #000000;
-  font-size: 14pt;
-  line-height: 100%;
-  border-top: 1px solid #ffffff !important;
-  border-bottom: 1px solid #ffffff !important;
-}
-th, td {
-  background-color: #ffffff;
-}
-table th {
-  font-weight: 400;
-}
-
-/* Extra left padding */
-.pad-left {
-  margin-left: 5%;
-}
-
-/* Extra left padding */
-.big-left {
-  margin-left: 15%;
-  margin-bottom: -0.4em;
-}
 
 /* Attention */
 .attn {
   font-weight: 500;
   color: #e64173 !important;
   font-family: 'Zilla Slab' !important;
-}
-
-/* Note */
-.note {
-  font-weight: 300;
-  font-style: italic;
-  color: #314f4f !important;
-  /* color: #cccccc !important; */
-  font-family: 'Zilla Slab' !important;
-}
-
-/* Question and answer */
-.qa {
-  font-weight: 500;
-  /* color: #314f4f !important; */
-  color: #e64173 !important;
-  font-family: 'Zilla Slab' !important;
-}
-
-/* Example */
-.ex {
-  font-weight: 300;
-  color: #cccccc !important;
-  font-style: italic;
-}
-
-.col-left {
-  float: left;
-  width: 47%;
-  margin-top: -1em;
-}
-.col-right {
-  float: right;
-  width: 47%;
-  margin-top: -1em;
-}
-
-.clear-up {
-  clear: both;
-  margin-top: -1em;
-}
-
-/* Remove orange line */
-hr, .title-slide h2::after, .mline h1::after {
-  content: '';
-  display: block;
-  border: none;
-  background-color: #e5e5e5;
-  color: #e5e5e5;
-  height: 1px;
 }

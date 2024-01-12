@@ -1,32 +1,29 @@
 ---
 title: "Заголовок"
-title-slide-attributes:
-    data-background-iframe: colored-particles/index.html
-
 subtitle: "Підзаголовок"
 author: "Ігор Мірошниченко"
-date: today
-date-format: iso
-institute: КНЕУ::ІІТЕ
-language: _language-ukr.yml
-format:
-  revealjs: 
-    theme: [simple, custom.scss]
-    logo: img/logo.png
-    chalkboard: true
-    slide-number: true
-    toc: true
-    toc-title: ЗМІСТ
+institute: "КНУ імені Тараса Шевченка"
+# date: today
+# date-format: iso
+from: markdown+emoji
+title-slide-attributes:
+  data-background-iframe: colored-particles/index.html
+  # data-background-color: "#eef3f8"
+language: _language-ua.yml
+footer: 🔗 <a href="https://aranaur.rbind.io">Посилання на джерело</a>
+format: 
+  revealjs:
     transition: fade
+    chalkboard: true
+    logo: img/fit.png
+    code-line-numbers: false
+    slide-number: c/t
     mouse-wheel: true
-    highlight-style: github
-    mainfont: metropolis
-    toc-depth: 1
-    fig-width: 9
-    fig-height: 5
-    
-preload-iframes: true
-        
+    width: 1350  
+    height: 759.375
+    # highlight-style: github
+    pdf-separate-fragments: true
+    theme: [default, custom.scss]
 knitr: 
   opts_chunk: 
     echo: true
@@ -62,27 +59,452 @@ purple     = "#6A5ACD"
 slate      = "#314f4f"
 ```
 
-# Частина 1 {background-iframe="colored-particles/index.html"}
+## Привіт!
 
-# Частина 2 {background-iframe="grid-worms/index.html"}
+Ця презентація покаже вам приклади того, що можна зробити за допомогою Quarto та [Reveal.js](https://revealjs.com), зокрема:
 
-# Частина 3 {background-iframe="logo-fall/index.html"}
+- Представлення коду та рівнянь LaTeX
+- Включення обчислень у вивід слайдів
+- Фони для зображень, відео та iframe
+- Фантазійні переходи та анімації
+- Друк у PDF
 
-# Частина 4 {background-iframe="multiple-images/index.html"}
+...та багато іншого
 
-# Частина 5 {background-iframe="polygon-mask/index.html"}
+## Красивий код {auto-animate="true"}
+
+- Понад 20 тем для підсвічування синтаксису
+- Тема за замовчуванням оптимізована для доступності
+
+``` r
+# Визначити сервер для додатку Shiny
+function(input, output) {
+  
+  # Заповнюємо місце, яке ми створили для графіку
+  output$phonePlot <- renderPlot({
+    # Відрендерити гістограму
+  })
+}
+```
+
+::: footer
+Дізнайтеся більше: [Підсвічування синтаксису](https://quarto.org/docs/output-formats/html-code.html#highlighting)
+:::
+
+## Анімація коду {auto-animate="true"}
+
+- Понад 20 тем для підсвічування синтаксису
+- Тема за замовчуванням оптимізована для доступності
+
+``` r
+# Визначити сервер для додатку Shiny
+function(input, output) {
+  
+  # Заповнюємо місце, яке ми створили для графіку
+  output$phonePlot <- renderPlot({
+    # Відрендерити гістограму
+    barplot(WorldPhones[,input$region]*1000, 
+            main=input$region,
+            ylab="Кількість телефонів",
+            xlab="Рік")
+  })
+}
+```
+
+::: footer
+Дізнайтеся більше: [Анімація коду](https://quarto.org/docs/presentations/revealjs/advanced.html#code-animations)
+:::
+
+## Виділення рядків
+
+- Виділення певних рядків для підкреслення
+- Інкрементне виділення додаткових рядків
+
+``` {.python code-line-numbers="4-5|7|10"}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+::: footer
+Дізнайтеся більше: [Виділення рядків](https://quarto.org/docs/presentations/revealjs/#line-highlighting)
+:::
+
+## Виконання коду
+
+```{r}
+#| echo: true
+#| fig-width: 10
+#| fig-height: 4.5
+library(ggplot2)
+ggplot(mtcars, aes(hp, mpg, color = am)) +
+  geom_point() +
+  geom_smooth(formula = y ~ x, method = "loess")
+```
+
+::: footer
+Дізнайтеся більше: [Виконання коду](https://quarto.org/docs/presentations/revealjs/#executable-code)
+:::
+
+## LaTeX рівняння
+
+[MathJax](https://www.mathjax.org/) виведення рівнянь у HTML
+
+::: columns
+::: {.column width="40%"}
+``` tex
+\begin{gather*}
+a_1=b_1+c_1\\
+a_2=b_2+c_2-d_2+e_2
+\end{gather*}
+
+\begin{align}
+a_{11}& =b_{11}&
+  a_{12}& =b_{12}\\
+a_{21}& =b_{21}&
+  a_{22}& =b_{22}+c_{22}
+\end{align}
+```
+:::
+
+::: {.column width="60%"}
+```{=tex}
+\begin{gather*}
+a_1=b_1+c_1\\
+a_2=b_2+c_2-d_2+e_2
+\end{gather*}
+```
+```{=tex}
+\begin{align}
+a_{11}& =b_{11}&
+  a_{12}& =b_{12}\\
+a_{21}& =b_{21}&
+  a_{22}& =b_{22}+c_{22}
+\end{align}
+```
+:::
+:::
+
+::: footer
+Дізнатися більше: [Рівняння LaTeX](https://quarto.org/docs/authoring/markdown-basics.html#equations)
+:::
+
+## Використання колонок {.smaller}
+
+Впорядковує вміст у колонки різної ширини:
+
+::: columns
+::: {.column width="35%"}
+#### Дорожні випробування автомобілів Motor Trend
+
+Дані взяті з американського журналу Motor Trend за 1974 рік і включають споживання пального та 10 характеристик 32 автомобілів.
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="62%"}
+```{r}
+#| echo: false
+knitr::kable(head(mtcars)[,c("mpg", "cyl", "disp", "hp", "wt")])
+```
+:::
+:::
+
+::: footer
+Дізнайтеся більше: [Кілька колонок](https://quarto.org/docs/presentations/revealjs/#multiple-columns)
+:::
+
+## Послідовні списки
+
+За бажанням, списки можна відображати поетапно:
+
+::: incremental
+- Перший пункт
+- Другий пункт
+- Третій пункт
+:::
+
+. . .
+
+<br/> Вставляйте паузи, щоб інші типи контенту відображалися поступово.
+
+::: footer
+Дізнайтеся більше: [Послідовні списки](https://quarto.org/docs/presentations/revealjs/#incremental-lists)
+:::
+
+## Фрагменти
+
+Послідовне відображення тексту та анімація з фрагментами:
+
+<br/>
+
+::: {.fragment .fade-in}
+Поява
+:::
+
+::: {.fragment .fade-up}
+Поява знизу
+:::
+
+::: {.fragment .fade-left}
+Поява вліво
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+Пояка та затухання
+:::
+
+. . .
+
+::: {.fragment .strike}
+Закреслення
+:::
+
+::: {.fragment .highlight-red}
+Виділення чорвоним
+:::
+
+::: footer
+Дізнайтеся більше: [Фрагменти](https://quarto.org/docs/presentations/revealjs/advanced.html#fragments)
+:::
+
+## Зміна фону {background="#eef3f8"}
+
+Встановіть атрибут `background` на слайді, щоб змінити колір фону (підтримуються всі формати кольорів CSS).
+
+Різні переходи фону доступні за допомогою параметра `background-transition`.
+
+::: footer
+Дізнайтеся більше: [Зміна фону](https://quarto.org/docs/presentations/revealjs/#color-backgrounds)
+:::
+
+## [Медіа фони]{.white} {background="#eef3f8" background-image="img/milky-way.jpg" .white}
+
+Ви також можете використати наступне як фон слайда:
+
+- Зображення: `background-image`
+
+- Відео: `background-video`
+
+- iframe: `background-iframe`
+
+::: footer
+Дізнайтеся більше: [Медіа фони](https://quarto.org/docs/presentations/revealjs/#image-backgrounds)
+:::
+
+## Абсолютне позиціонування
+
+Розміщення зображень або інших елементів у точних місцях
+
+![](img/cat3.jpg){.absolute top="170" left="30" width="400"}
+
+![](img/cat2.jpg){.absolute .fragment bottom="110" right="130" width="600"}
+
+![](img/cat1.jpg){.absolute .fragment top="190" right="600" width="350"}
+
+::: footer
+Дізнатися більше: [Абсолютне позиціонування](https://quarto.org/docs/presentations/revealjs/advanced.html#absolute-position)
+:::
+
+## Авто-анімація {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+Автоматично анімує відповідні елементи на слайдах за допомогою авто-анімації.
+
+::: r-hstack
+::: {data-id="box1" auto-animate-delay="0" style="background: #2780e3; width: 200px; height: 150px; margin: 10px;"}
+:::
+
+::: {data-id="box2" auto-animate-delay="0.1" style="background: #3fb618; width: 200px; height: 150px; margin: 10px;"}
+:::
+
+::: {data-id="box3" auto-animate-delay="0.2" style="background: #e83e8c; width: 200px; height: 150px; margin: 10px;"}
+:::
+:::
+
+::: footer
+Дізнайтеся більше: [Авто-анімація](https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate)
+:::
+
+## Авто-анімація {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+Автоматично анімує відповідні елементи на слайдах за допомогою авто-анімації.
+
+::: r-stack
+::: {data-id="box1" style="background: #2780e3; width: 350px; height: 350px; border-radius: 200px;"}
+:::
+
+::: {data-id="box2" style="background: #3fb618; width: 250px; height: 250px; border-radius: 200px;"}
+:::
+
+::: {data-id="box3" style="background: #e83e8c; width: 150px; height: 150px; border-radius: 200px;"}
+:::
+:::
+
+::: footer
+Дізнайтеся більше: [Авто-анімація](https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate)
+:::
+
+## Переходи слайдів {.smaller}
+
+Наступні кілька слайдів будуть переходити за допомогою переходу `slide`.
+
+Перехід | Опис |
+|------------|------------------------------------------------------------------------|
+| `none` | Перехід відсутній (за замовчуванням, перемикання відбувається миттєво) |
+| `fade` | Перехресне зникання |
+| `slide` | Зсув по горизонталі |
+| `convex` | Зсув під кутом |
+| `concave` | Зсунути під увігнутим кутом |
+| `zoom` | Масштабувати вхідний слайд так, щоб він збільшувався від центру екрана |
+
+::: footer
+Дізнайтеся більше: [Переходи між слайдами](https://quarto.org/docs/presentations/revealjs/advanced.html#slide-transitions)
+:::
+
+## Вкладки {.smaller .scrollable transition="slide"}
+
+::: panel-tabset
+### Графік
+
+```{r}
+#| fig-height: 4
+library(ggplot2)
+ggplot(mtcars, aes(hp, mpg, color = am)) +
+  geom_point() +
+  geom_smooth(formula = y ~ x, method = "loess")
+```
+
+### Дані
+
+```{r}
+knitr::kable(mtcars)
+```
+:::
+
+::: footer
+Дізнатися більше: [Вкладки](https://quarto.org/docs/presentations/revealjs/#tabsets)
+:::
+
+## Інтерактивні слайди {.smaller transition="slide"}
+
+Додавайте віджети Jupyter та html-віджети до своїх презентацій
+
+```{r}
+#| echo: false
+#| fig-height: 5
+library(leaflet)
+leaflet() %>%
+  addTiles() %>% # Додати стандартні плитки мапи OpenStreetMap
+  addMarkers(lng=30.51110, lat=50.44208, popup="КНУ імені Тараса Шевченка") %>% 
+  addMarkers(lng=30.47393, lat=50.45563, popup="ФІТ")
+```
+
+::: footer
+Дізнатися більше: [Jupyter-віджети](https://quarto.org/docs/interactive/widgets/jupyter.html), [html-віджети](https://quarto.org/docs/interactive/widgets/htmlwidgets.html)
+:::
+
+## Попередній перегляд посилань
+
+Переходьте за гіперпосиланнями, не порушуючи ходу презентації.
+
+Використовуйте опцію `preview-links`, щоб відкривати посилання в iframe поверх слайдів. Спробуйте натиснути на посилання нижче для демонстрації:
+
+::: {style="text-align: center; margin-top: 1em"}
+[Matplotlib: Візуалізація за допомогою Python](https://matplotlib.org/){preview-link="true" style="text-align: center"}
+:::
+
+::: footer
+Дізнайтеся більше: [Попередній перегляд посилань](https://quarto.org/docs/presentations/revealjs/presenting.html#preview-links)
+:::
+
+## Теми
+
+10 вбудованих тем (або [створити власну](https://quarto.org/docs/presentations/revealjs/themes.html#creating-themes))
+
+::: {layout-ncol="2"}
+![](img/moon.png)
+
+![](img/sky.png)
+:::
+
+::: footer
+Дізнатися більше: [Теми](https://quarto.org/docs/presentations/revealjs/themes.html)
+:::
+
+## Зручна навігація
+
+::: {style="margin-bottom: 0.9em;"}
+Швидкий перехід до інших частин презентації
+:::
+
+::: {layout="[1, 20]"}
+![](img/presentation-menu.png){width="41"}
+
+Перемикайте меню слайда за допомогою кнопки меню (внизу ліворуч від слайда), щоб перейти до інших слайдів і отримати доступ до інструментів презентації.
+:::
+
+Ви також можете натиснути клавішу `m`, щоб відкрити або закрити меню.
+
+::: footer
+Дізнатися більше: [Навігація](https://quarto.org/docs/presentations/revealjs/presenting.html#navigation-menu)
+:::
+
+## Дошка для крейди {chalkboard-buttons="true"}
+
+::: {style="margin-bottom: 0.9em;"}
+Малюнок у довільній формі та анотації до слайдів
+:::
+
+::: {layout="[1, 20]"}
+![](img/presentation-chalkboard.png){width="41"}
+
+Використовуйте кнопку дошки внизу ліворуч від слайда для перемикання дошки.
+:::
+
+::: {layout="[1, 20]"}
+![](img/presentation-notes-canvas.png){width="41"}
+
+Використовуйте кнопку пензлика у нижньому лівому кутку слайда для малювання поверх поточного слайда.
+:::
+
+Ви також можете натиснути `b` для перемикання дошки або `c` для малювання.
+
+::: footer
+Дізнайтеся більше: [Крейдова дошка](https://quarto.org/docs/presentations/revealjs/presenting.html#chalkboard)
+:::
+
+## І не тільки...
+
+- [Touch](https://quarto.org/docs/presentations/revealjs/advanced.html#touch-navigation) оптимізовано (презентації чудово виглядають на мобільних пристроях, свайп для переходу по слайдах)
+- [Нижній колонтитул і логотип](https://quarto.org/docs/presentations/revealjs/#footer-logo) (за бажанням можна вказати власний нижній колонтитул для кожного слайда)
+- [Автоперехід](https://quarto.org/docs/presentations/revealjs/presenting.html#auto-slide) (автоматичний перехід між слайдами без участі користувача)
+- [Мультиплекс](https://quarto.org/docs/presentations/revealjs/presenting.html#multiplex) (дозволяє вашій аудиторії стежити за слайдами презентації, якою ви керуєте, на власному телефоні, планшеті або ноутбуці).
+
+::: footer
+Дізнатися більше: [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/)
+:::
+
+
 
 # Дякую за увагу! {.unnumbered .unlisted background-iframe="colored-particles/index.html"}
 
 <br>
 <br>
 
-`r fa("telegram")` [Data Mirosh](https://t.me/araprof)
+{{< iconify ic baseline-telegram >}} [Data Mirosh](https://t.me/araprof)
 
-`r fa("github")` [\@aranaur](https://github.com/Aranaur)
+{{< iconify mdi github >}} [aranaur](https://github.com/Aranaur)
 
-`r fa("envelope")` ihor.miroshnychenko\@kneu.ua
+{{< iconify mdi envelope >}} ihor.miroshnychenko\@knu.ua
 
-`r fa("linkedin")` [\@ihormiroshnychenko](https://www.linkedin.com/in/ihormiroshnychenko/)
+{{< iconify mdi linkedin >}} [ihormiroshnychenko](https://www.linkedin.com/in/ihormiroshnychenko/)
 
-`r fa("house")` [aranaur.rbind.io](https://aranaur.rbind.io)
+{{< iconify ion home >}} [aranaur.rbind.io](https://aranaur.rbind.io)
